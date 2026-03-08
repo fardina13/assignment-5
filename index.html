@@ -22,8 +22,8 @@
      
 </head>
 <body class="min-h-screen max-w-md bg-base-200 mx-auto">
-    <div class="logo w-[200px] mx-auto pt-32">
-        <img src="assets/github-logo.png" alt="">
+    <div class="logo w-[200px] mx-auto pt-20">
+        <img src="assets/github-logo.png" class="block mx-auto" alt="">
     </div>
 
     <div class="text-center pt-6">
@@ -36,15 +36,15 @@
       <div class="card-body">
         <fieldset class="fieldset">
           <label class="label text-neutral font-bold">User Name</label>
-          <input id="input-number" maxlength="11" minlength="11" type="text" class="input rounded-md bg-base-200" value="01712345678" placeholder="Enter Username" />
+          <input id="input-name" type="text" class="input rounded-md bg-base-200" placeholder="Enter Username" />
           <br>
           <label class="label text-neutral font-bold">Password</label>
-          <input id="input-pin" type="password" maxlength="8" class="input rounded-md bg-base-200" placeholder="Enter Password" />
-          <button id="login-btn" class="btn btn-primary mt-4 rounded-md">Sign In</button>
+          <input id="input-password" type="password" maxlength="8" class="input rounded-md bg-base-200" placeholder="Enter Password" />
+          <button id="signin-btn" class="btn btn-primary mt-4 rounded-md">Sign In</button>
         </fieldset>
       </div>
     </div>
     </div>
-    <script src="script/script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
