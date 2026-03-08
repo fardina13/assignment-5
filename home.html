@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment-5 | Home</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- tailwind + daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <div class="navbar bg-base-100 shadow-sm justify-between">
+          <a href="" class="flex items-center gap-1">
+          <img src="assets/github-logo.png" class="w-9 h-9" alt="">
+          <h2 class="font-semibold text-2xl">GitHub Issues Tracker</h2>
+          </a>
+          <div class="flex gap-2">
+            <label class="input input-bordered flex items-center gap-2">
+              <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+              <input type="text" class="grow" placeholder="Search issues..." />
+            </label>
+          <button class="btn btn-primary">+ New Issue</button>
+          </div>
+        </div>
+    </header>
+
+    <section class= "w-11/12 mx-auto mt-32">
+        <div class="flex gap-4">
+            <button id="tab-all" onclick="switchTab('all')" class="px-8 py-2 test-[#64748b] border-2 text-[16px] rounded-md transition-all duration-200 cursor-pointer">All</button>
+            <button id="tab-open" onclick="switchTab('open')" class="px-6 py-2 test-[#64748b] border-2 text-[16px] rounded-md transition-all duration-200 cursor-pointer">Open</button>
+            <button id="tab-closed" onclick="switchTab('closed')" class="px-6 py-2 test-[#64748b] border-2 text-[16px] rounded-md transition-all duration-200 cursor-pointer">Closed</button>
+        </div>
+        <div class="flex mt-16 gap-4">
+            <img src="assets/Aperture.png" class="w-12 h-12" alt="">
+            <div>
+                <h2 class="text-[20px] font-semibold">50 issues</h2>
+                <p class="test-[#64748b] text-[16px]">Track and manage your project issues</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="issue-container" class="w-11/12 mx-auto bg-gray-100 p-10 my-5">
+        <div class="bg-white"></div>
+    </section>
+    <script src="script/script.js"></script>
 </body>
 </html>
