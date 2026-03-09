@@ -47,10 +47,10 @@ function displayIssues(issues) {
         const s = issue.status ? issue.status.toLowerCase() : 'open';
         const borderColor = (s === 'open') ? 'border-green-500' : 'border-purple-500';
         card.className = `bg-white rounded-xl shadow-sm py-6 px-5 flex flex-col h-full border-t-4 ${borderColor}`;
-        card.innerHTML =`
-            <div class="flex justify-between pb-3">
-                <img src="${s === 'open' ? 'assets/Open-Status.png' : 'assets/Closed-Status.png'}" alt="status">
-                <div class="bg-[#FEECEC] rounded-full"><p class="font-medium text-[12px] text-[#EF4444]">${issue.priority}</p></div>
+        card.innerHTML =` 
+            <div onclick="my_modal_5.showModal()" class="flex justify-between pb-3">
+                <img src="./assets/${s === 'open' ? 'Open-Status.png' : 'Closed-Status.png'}" alt="status">
+                <div class="bg-[#FEECEC] rounded-full"><p class="font-medium text-[12px] text-[#EF4444] cursor-pointer">${issue.priority}</p></div>
             </div>
             <h2 class="font-semibold text-[16px]">${issue.title}</h2>
             <p class="text-[14px] text-[#64748B]">${issue.description}</p>
