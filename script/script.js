@@ -48,7 +48,7 @@ function displayIssues(issues) {
         const borderColor = (s === 'open') ? 'border-green-500' : 'border-purple-500';
         card.className = `bg-white rounded-xl shadow-sm py-6 px-5 flex flex-col h-full border-t-4 ${borderColor}`;
         card.innerHTML =` 
-            <div onclick="my_modal_5.showModal()" class="flex justify-between pb-3">
+            <div showModalData(id) class="flex justify-between pb-3">
                 <img src="./assets/${s === 'open' ? 'Open-Status.png' : 'Closed-Status.png'}" alt="status">
                 <div class="bg-[#FEECEC] rounded-full"><p class="font-medium text-[12px] text-[#EF4444] cursor-pointer">${issue.priority}</p></div>
             </div>
@@ -66,11 +66,13 @@ function displayIssues(issues) {
             const activeTab = document.querySelector('.bg-[#4A00FF]') ? document.querySelector('.bg-[#4A00FF]').id.replace('tab-', '') : 'all';
             switchTab(activeTab);
             };
+        card.addEventListener("click", () => {
+        showModalData(issue.id);
+    });
         container.appendChild(card);
     });
 }
 loadIssues();
-
 document.getElementById('btn-search').addEventListener('click', ()=>{
     const input = document.getElementById('input-search');
     const searchValue = input.value.trim().toLowerCase();
@@ -85,3 +87,18 @@ document.getElementById('btn-search').addEventListener('click', ()=>{
             }
         })
 })
+const showModalData = async (id) => {
+    const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
+    const json = await res.json();
+    const issueData = json.data;
+    const detailsBox = document.getElementById('details-container');
+    detailsBox.innerHTML = `
+        <h2 class="text-[24px] font-bold">${issueData.title}</h2>
+        <p class="py-4 text-[16px] text-[#64748B]">${issueData.description}</p>
+        <div class="flex gap-2 items-center">
+        <p class="text-white bg-green-600 rounded-full px-4 py-2 text-[12px]">${issueData.status}</p>
+        <p class="text-[#64748B] text-[12px]">${issueData.author}</p>
+    </div>
+    `;
+    document.getElementById('my_modal_5').showModal();   
+}  
